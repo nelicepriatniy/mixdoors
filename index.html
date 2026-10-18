@@ -81,7 +81,7 @@
         </div>
         <div class="header-top-r">
           <a href="" class="phone">+7 (495) 514-30-20</a>
-          <button class="yellow-btn">
+          <button class="yellow-btn" data-lead="measure">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M5.83398 10.834L3.33398 13.334V16.6673H6.66732L14.1673 9.16732M5.83398 10.834L8.33398 8.33398M5.83398 10.834L7.50065 12.5007M8.33398 8.33398L10.834 5.83398M8.33398 8.33398L10.0007 10.0007M10.834 5.83398L13.334 3.33398L16.6673 6.66732L14.1673 9.16732M10.834 5.83398L14.1673 9.16732"
@@ -159,7 +159,7 @@
                 stroke-linecap="round" stroke-linejoin="round" stroke="#132A43" />
             </svg>
           </div>
-          <div class="empty-btn">Бесплатный замер</div>
+          <div class="empty-btn" data-lead="measure">Бесплатный замер</div>
         </div>
       </div>
       <div class="hero-btm">
@@ -444,7 +444,7 @@
             менеджер подготовит расчёт с дверями, фурнитурой, доставкой и установкой.</p>
         </div>
         <div class="sta-r">
-          <div class="yellow-btn">Бесплатный замер</div>
+          <div class="yellow-btn" data-lead="measure">Бесплатный замер</div>
           <div class="white-btn">Как проходит установка</div>
         </div>
       </div>
@@ -617,6 +617,176 @@
       </div>
     </div>
   </footer>
+
+  <div class="overlay"></div>
+  <div class="catalog-drawer" id="catalogDrawer">
+    <div class="catalog-drawer-head">
+      <p class="heading">Все направления каталога</p>
+      <button class="close">×</button>
+    </div>
+    <div class="catalog-drawer-body">
+      <div class="menu-section">
+        <button class="menu-section-btn">
+          <span>Входные двери</span>
+          <span>＋</span>
+        </button>
+        <div class="submenu">
+          <a href="">В квартиру</a>
+          <a href="">В дом</a>
+          <a href="">Уличные</a>
+          <a href="">Противопожарные</a>
+        </div>
+      </div>
+      <div class="menu-section">
+        <button class="menu-section-btn">
+          <span>Межкомнатные двери</span>
+          <span>＋</span>
+        </button>
+        <div class="submenu">
+          <a href="">Двери «Аэлита»</a>
+          <a href="">Двери «Дорс-Ола»</a>
+          <a href="">Двери ПВХ</a>
+          <a href="">Ульяновские двери «Диодорс»</a>
+          <a href="">Двери Velldoris</a>
+          <a href="">Арочные двери</a>
+        </div>
+      </div>
+      <div class="menu-section">
+        <button class="menu-section-btn">
+          <span>Скрытые двери</span>
+          <span>＋</span>
+        </button>
+        <div class="submenu">
+          <a href="">С алюминиевой кромкой</a>
+          <a href="">Без алюминиевой кромки</a>
+          <a href="">Скрытые двери «Сфера»</a>
+        </div>
+      </div>
+      <div class="menu-section">
+        <a href="" class="menu-section-btn">
+          <span>Стеновые панели</span>
+          <span>→</span>
+        </a>
+      </div>
+      <div class="menu-section">
+        <button class="menu-section-btn">
+          <span>Арки, порталы</span>
+          <span>＋</span>
+        </button>
+        <div class="submenu">
+          <a href="">Аэлита</a>
+          <a href="">Лесма</a>
+          <a href="">Порталы</a>
+        </div>
+      </div>
+      <div class="menu-section">
+        <button class="menu-section-btn">
+          <span>Перегородки</span>
+          <span>＋</span>
+        </button>
+        <div class="submenu">
+          <a href="">Алюминиевые перегородки</a>
+          <a href="">Перегородки из МДФ</a>
+          <a href="">Механизмы для перегородок</a>
+        </div>
+      </div>
+      <div class="menu-section">
+        <a href="" class="menu-section-btn">
+          <span>Системы открывания</span>
+          <span>→</span>
+        </a>
+      </div>
+      <div class="menu-section">
+        <a href="" class="menu-section-btn">
+          <span>Нестандартные решения</span>
+          <span>→</span>
+        </a>
+      </div>
+      <div class="menu-section">
+        <button class="menu-section-btn">
+          <span>Установка дверей</span>
+          <span>＋</span>
+        </button>
+        <div class="submenu">
+          <a href="">Установка входных</a>
+          <a href="">Установка межкомнатных</a>
+          <a href="">Установка перегородок</a>
+        </div>
+      </div>
+      <div class="menu-section">
+        <a href="" class="menu-section-btn">
+          <span>Доставка и подъём дверей</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="message" data-lead="chat">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M19.25 13.75C19.25 14.7225 18.8637 15.6551 18.1761 16.3427C17.4884 17.0304 16.5558 17.4167 15.5833 17.4167H7.33333L2.75 20.1667V6.41667C2.75 5.44421 3.13631 4.51158 3.82394 3.82394C4.51158 3.13631 5.44421 2.75 6.41667 2.75H15.5833C16.5558 2.75 17.4884 3.13631 18.1761 3.82394C18.8637 4.51158 19.25 5.44421 19.25 6.41667V13.75Z"
+        stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" stroke="#132A43" />
+      <path d="M7.33398 9.16602H14.6673M7.33398 12.8327H11.9173" stroke-width="1.65" stroke-linecap="round"
+        stroke-linejoin="round" stroke="#132A43" />
+    </svg>
+  </div>
+
+  <div class="cookie" id="cookie">
+    <div class="cookie-head">
+      <p class="heading">Мы используем cookies</p>
+      <button class="cookie-close">×</button>
+    </div>
+    <p class="text">Необходимые cookies помогают сайту работать, а дополнительные - запоминать настройки и улучшать
+      удобство использования.</p>
+    <div class="cookie-actions">
+      <button class="dark-btn cookie-accept">Принять</button>
+      <button class="white-btn cookie-decline">Только необходимые</button>
+      <a href="" class="cookie-link">Подробнее</a>
+    </div>
+  </div>
+
+  <div class="modal" id="leadModal">
+    <div class="modal-head">
+      <p class="heading">Бесплатный замер</p>
+      <button class="close">×</button>
+    </div>
+    <div class="modal-body">
+      <p class="text">Специалист свяжется с вами и согласует удобное время замера.</p>
+      <form class="lead-form" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label>Имя</label>
+            <input type="text" name="name" autocomplete="name" placeholder="Как к вам обращаться">
+            <p class="field-error">Введите имя</p>
+          </div>
+          <div class="field">
+            <label>Телефон</label>
+            <input type="tel" name="phone" class="phone-mask" inputmode="numeric" autocomplete="tel"
+              placeholder="+7 (___) ___-__-__">
+            <p class="field-error">Введите номер телефона полностью</p>
+          </div>
+          <div class="field full">
+            <label>Комментарий</label>
+            <textarea name="comment" rows="3" placeholder="Что вас интересует?"></textarea>
+          </div>
+        </div>
+        <label class="consent">
+          <input type="checkbox" checked>
+          Согласен на обработку персональных данных
+        </label>
+        <p class="consent-error">Подтвердите согласие на обработку данных</p>
+        <button type="submit" class="yellow-btn">Отправить заявку</button>
+        <p class="call">Или позвоните: <a href="tel:+74955143020">+7 (495) 514-30-20</a></p>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast"></div>
+
+
+
+
 
 
   <script src="js/swiper-bundle.min.js"></script>
