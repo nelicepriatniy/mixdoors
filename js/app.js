@@ -1,3 +1,10 @@
+const heroCurrent = document.querySelector('.hero .slider-nums .current');
+const heroCount = document.querySelector('.hero .slider-nums .count');
+
+function formatSlideNum(num) {
+  return String(num).padStart(2, '0');
+}
+
 const heroSlider = new Swiper('.hero-slider', {
   speed: 400,
   autoplay: {
@@ -10,6 +17,15 @@ const heroSlider = new Swiper('.hero-slider', {
   effect: 'fade',
   fadeEffect: {
     crossFade: true
+  },
+  on: {
+    init(swiper) {
+      heroCurrent.textContent = formatSlideNum(swiper.realIndex + 1);
+      heroCount.textContent = formatSlideNum(swiper.slides.length);
+    },
+    slideChange(swiper) {
+      heroCurrent.textContent = formatSlideNum(swiper.realIndex + 1);
+    },
   },
 });
 
