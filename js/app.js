@@ -1,33 +1,37 @@
-const heroCurrent = document.querySelector('.hero .slider-nums .current');
-const heroCount = document.querySelector('.hero .slider-nums .count');
+const heroSliderEl = document.querySelector('.hero-slider');
 
-function formatSlideNum(num) {
-  return String(num).padStart(2, '0');
+if (heroSliderEl) {
+  const heroCurrent = document.querySelector('.hero .slider-nums .current');
+  const heroCount = document.querySelector('.hero .slider-nums .count');
+
+  function formatSlideNum(num) {
+    return String(num).padStart(2, '0');
+  }
+
+  const heroSlider = new Swiper(heroSliderEl, {
+    speed: 400,
+    autoplay: {
+      delay: 3000,
+    },
+    pagination: {
+      el: '.hero-slider-padgination',
+      type: 'bullets',
+    },
+    effect: 'fade',
+    fadeEffect: {
+      crossFade: true
+    },
+    on: {
+      init(swiper) {
+        heroCurrent.textContent = formatSlideNum(swiper.realIndex + 1);
+        heroCount.textContent = formatSlideNum(swiper.slides.length);
+      },
+      slideChange(swiper) {
+        heroCurrent.textContent = formatSlideNum(swiper.realIndex + 1);
+      },
+    },
+  });
 }
-
-const heroSlider = new Swiper('.hero-slider', {
-  speed: 400,
-  autoplay: {
-    delay: 3000,
-  },
-  pagination: {
-    el: '.hero-slider-padgination',
-    type: 'bullets',
-  },
-  effect: 'fade',
-  fadeEffect: {
-    crossFade: true
-  },
-  on: {
-    init(swiper) {
-      heroCurrent.textContent = formatSlideNum(swiper.realIndex + 1);
-      heroCount.textContent = formatSlideNum(swiper.slides.length);
-    },
-    slideChange(swiper) {
-      heroCurrent.textContent = formatSlideNum(swiper.realIndex + 1);
-    },
-  },
-});
 
 const headerBurger = document.querySelector('.header-burger');
 const catalogDrawer = document.querySelector('#catalogDrawer');
@@ -35,6 +39,7 @@ const overlay = document.querySelector('.overlay');
 const catalogDrawerClose = catalogDrawer.querySelector('.close');
 const menuSectionBtns = catalogDrawer.querySelectorAll('button.menu-section-btn');
 const leadModal = document.querySelector('#leadModal');
+const zoomModal = document.querySelector('.zoom-modal');
 
 function openCatalogDrawer() {
   catalogDrawer.classList.add('active');
@@ -45,6 +50,13 @@ function openCatalogDrawer() {
 function closeOverlays() {
   catalogDrawer.classList.remove('active');
   leadModal.classList.remove('active');
+  if (zoomModal) {
+    zoomModal.classList.remove('active');
+    const zoomImage = zoomModal.querySelector('.zoom-stage img');
+    if (zoomImage) {
+      zoomImage.style.transform = '';
+    }
+  }
   overlay.classList.remove('active');
   document.documentElement.classList.remove('lock');
 }
@@ -80,6 +92,9 @@ function showToast(text) {
 const leadTypes = {
   measure: ['Бесплатный замер', 'Специалист свяжется с вами и согласует удобное время замера.'],
   chat: ['Задать вопрос', 'Оставьте телефон или комментарий - специалист ответит по вашему вопросу.'],
+  calc: ['Заявка на расчёт', 'Оставьте контакты - менеджер уточнит размеры, комплектацию и подготовит расчёт стоимости.'],
+  estimate: ['Рассчитать решение', 'Расскажите о задаче - мы уточним детали и предложим следующий шаг.'],
+  service: ['Рассчитать стоимость', 'Оставьте контакты - менеджер уточнит объём работ.'],
 };
 
 const leadBtns = document.querySelectorAll('[data-lead]');
@@ -231,3 +246,229 @@ if (!localStorage.getItem('siteCookies')) {
     cookie.classList.add('active');
   }, 700);
 }
+
+
+// ===== Каталог =====
+
+const filterGroups = document.querySelectorAll('.filter-group');
+
+filterGroups.forEach((group) => {
+  group.querySelector('.filter-group-title').addEventListener('click', () => {
+    group.classList.toggle('collapsed');
+  });
+});
+
+const sortSelect = document.querySelector('.sort-select');
+
+if (sortSelect) {
+  const sortTrigger = sortSelect.querySelector('.sort-select-trigger');
+  const sortTriggerText = sortTrigger.querySelector('span');
+  const sortOptions = sortSelect.querySelectorAll('.sort-select-option');
+
+  sortTrigger.addEventListener('click', () => {
+    sortSelect.classList.toggle('active');
+  });
+
+  sortOptions.forEach((option) => {
+    option.addEventListener('click', () => {
+      sortOptions.forEach((item) => item.classList.remove('active'));
+      option.classList.add('active');
+      sortTriggerText.textContent = option.textContent;
+      sortSelect.classList.remove('active');
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!sortSelect.contains(e.target)) {
+      sortSelect.classList.remove('active');
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      sortSelect.classList.remove('active');
+    }
+  });
+}
+
+
+// ===== Карточка товара =====
+
+const productSliderEl = document.querySelector('.product-slider');
+
+if (productSliderEl) {
+  const productThumbs = document.querySelectorAll('.product-thumbs .thumb');
+  const zoomImage = zoomModal.querySelector('.zoom-stage img');
+  const zoomStage = zoomModal.querySelector('.zoom-stage');
+  const zoomClose = zoomModal.querySelector('.close');
+  const zoomTools = zoomModal.querySelectorAll('.zoom-tool[data-zoom]');
+  let productZoomScale = 1;
+  let productZoomX = 0;
+  let productZoomY = 0;
+  let productZoomDragging = false;
+  let productZoomPointer = null;
+  let productZoomStartX = 0;
+  let productZoomStartY = 0;
+  let productZoomOriginX = 0;
+  let productZoomOriginY = 0;
+
+  function applyProductZoom() {
+    zoomImage.style.transform = `translate3d(${productZoomX}px, ${productZoomY}px, 0) scale(${productZoomScale})`;
+    zoomStage.classList.toggle('is-zoomed', productZoomScale > 1);
+    zoomStage.classList.toggle('is-dragging', productZoomDragging);
+  }
+
+  function clampProductPan() {
+    if (productZoomScale <= 1) {
+      productZoomX = 0;
+      productZoomY = 0;
+      return;
+    }
+
+    const maxX = Math.max(0, (zoomImage.clientWidth * (productZoomScale - 1)) / 2);
+    const maxY = Math.max(0, (zoomImage.clientHeight * (productZoomScale - 1)) / 2);
+    productZoomX = Math.max(-maxX, Math.min(maxX, productZoomX));
+    productZoomY = Math.max(-maxY, Math.min(maxY, productZoomY));
+  }
+
+  function resetProductZoom() {
+    productZoomScale = 1;
+    productZoomX = 0;
+    productZoomY = 0;
+    productZoomDragging = false;
+    productZoomPointer = null;
+    applyProductZoom();
+  }
+
+  function setProductZoom(delta) {
+    productZoomScale = Math.max(1, Math.min(4, productZoomScale + delta));
+    clampProductPan();
+    applyProductZoom();
+  }
+
+  const productSlider = new Swiper(productSliderEl, {
+    speed: 400,
+    effect: 'fade',
+    fadeEffect: {
+      crossFade: true
+    },
+    on: {
+      slideChange(swiper) {
+        productThumbs.forEach((thumb, i) => {
+          thumb.classList.toggle('active', i === swiper.realIndex);
+        });
+      },
+    },
+  });
+
+  productThumbs.forEach((thumb, i) => {
+    thumb.addEventListener('click', () => {
+      productSlider.slideTo(i);
+    });
+  });
+
+  function openProductZoom() {
+    const activeSlide = productSlider.slides[productSlider.activeIndex];
+    zoomImage.src = activeSlide.querySelector('img').src;
+    resetProductZoom();
+    overlay.classList.add('active');
+    zoomModal.classList.add('active');
+    document.documentElement.classList.add('lock');
+  }
+
+  productSliderEl.addEventListener('click', openProductZoom);
+  zoomClose.addEventListener('click', closeOverlays);
+
+  zoomTools.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (btn.dataset.zoom === 'reset') {
+        resetProductZoom();
+        return;
+      }
+      setProductZoom(Number(btn.dataset.zoom));
+    });
+  });
+
+  zoomStage.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    setProductZoom(e.deltaY < 0 ? 0.2 : -0.2);
+  }, { passive: false });
+
+  zoomStage.addEventListener('pointerdown', (e) => {
+    if (productZoomScale <= 1 || e.button !== 0) return;
+    productZoomDragging = true;
+    productZoomPointer = e.pointerId;
+    productZoomStartX = e.clientX;
+    productZoomStartY = e.clientY;
+    productZoomOriginX = productZoomX;
+    productZoomOriginY = productZoomY;
+    zoomStage.setPointerCapture(e.pointerId);
+    applyProductZoom();
+    e.preventDefault();
+  });
+
+  zoomStage.addEventListener('pointermove', (e) => {
+    if (!productZoomDragging || e.pointerId !== productZoomPointer) return;
+    productZoomX = productZoomOriginX + (e.clientX - productZoomStartX);
+    productZoomY = productZoomOriginY + (e.clientY - productZoomStartY);
+    clampProductPan();
+    applyProductZoom();
+    e.preventDefault();
+  });
+
+  function endZoomPan(e) {
+    if (!productZoomDragging) return;
+    if (productZoomPointer !== null) {
+      try {
+        zoomStage.releasePointerCapture(productZoomPointer);
+      } catch (err) { }
+    }
+    productZoomDragging = false;
+    productZoomPointer = null;
+    applyProductZoom();
+  }
+
+  zoomStage.addEventListener('pointerup', endZoomPan);
+  zoomStage.addEventListener('pointercancel', endZoomPan);
+  zoomStage.addEventListener('pointerleave', endZoomPan);
+
+  document.querySelectorAll('.product-info .options').forEach((group) => {
+    const options = group.querySelectorAll('.option');
+
+    options.forEach((option) => {
+      option.addEventListener('click', () => {
+        options.forEach((item) => item.classList.remove('active'));
+        option.classList.add('active');
+      });
+    });
+  });
+
+  const packages = document.querySelectorAll('.purchase .package');
+  const unitPrice = document.querySelector('.purchase .unit-price');
+  const totalPrice = document.querySelector('.purchase-sum-r .price');
+  const composition = document.querySelector('.purchase .set-composition');
+
+  packages.forEach((card) => {
+    card.addEventListener('click', () => {
+      packages.forEach((item) => item.classList.remove('active'));
+      card.classList.add('active');
+      const price = card.querySelector('strong').textContent;
+      unitPrice.textContent = price;
+      totalPrice.textContent = price;
+      composition.textContent = card.querySelector('.package-title').textContent;
+    });
+  });
+}
+
+
+// ===== Механизмы =====
+
+// ===== Акции =====
+
+// ===== Доставка =====
+
+// ===== Установка =====
+
+// ===== Панели =====
+
+// ===== Корзина =====
