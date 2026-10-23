@@ -14,6 +14,7 @@
 
   <div class="header-info">
     <div class="container">
+      <a class="header-mobile-phone" href="tel:+74955143020">+7 (495) 514-30-20</a>
       <div class="header-info-l">
         <p class="header-place">
           Салоны в Мытищах и Королёве
@@ -70,7 +71,7 @@
           <img src="media/icons/Logo.svg" alt="">
         </a>
         <div class="header-search">
-          <input type="text" placeholder="Поиск по каталогу">
+          <input type="text" placeholder="Поиск по каталогу" readonly>
           <svg class="icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M14.4141 9.19923C14.4141 12.2951 11.9044 14.8047 8.80861 14.8047C5.71279 14.8047 3.20312 12.2951 3.20312 9.19923C3.20312 6.10341 5.71279 3.59375 8.80861 3.59375C11.9044 3.59375 14.4141 6.10341 14.4141 9.19923Z"
@@ -111,6 +112,12 @@
             </svg>
             <span>0</span>
           </div>
+          <button class="mobile-toggle" type="button" aria-label="Открыть меню">
+            <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2.66602 4.66602H13.3327M2.66602 7.99935H13.3327M2.66602 11.3327H13.3327" stroke-width="1.2"
+                stroke-linecap="round" stroke-linejoin="round" stroke="black" />
+            </svg>
+          </button>
         </div>
 
       </div>
@@ -278,10 +285,21 @@
   <div class="overlay"></div>
   <div class="catalog-drawer" id="catalogDrawer">
     <div class="catalog-drawer-head">
-      <p class="heading">Все направления каталога</p>
+      <p class="heading drawer-title-desktop">Все направления каталога</p>
+      <p class="heading drawer-title-mobile">Меню</p>
       <button class="close">×</button>
     </div>
     <div class="catalog-drawer-body">
+      <nav class="mobile-drawer-main">
+        <a href="index.html">Главная</a>
+        <a href="promo.html">Акции</a>
+        <a href="works.html">Наши работы</a>
+        <a href="about.html">О компании</a>
+        <a href="contacts.html">Контакты</a>
+        <a class="mobile-yandex-reviews" href="https://yandex.ru/maps/org/miksdors/1396940321/reviews/?ll=37.807053%2C55.916889&amp;tab=reviews&amp;z=14.05" target="_blank" rel="noopener noreferrer"><span class="yandex-review-mark">Я</span>Отзывы на Яндекс Картах</a>
+      </nav>
+      <p class="mobile-drawer-label">Каталог и услуги</p>
+      <div class="mobile-drawer-catalog-primary">
       <div class="menu-section">
         <button class="menu-section-btn">
           <span>Входные двери</span>
@@ -353,6 +371,8 @@
           <span>→</span>
         </a>
       </div>
+      </div>
+      <div class="mobile-drawer-secondary">
       <div class="menu-section">
         <a href="" class="menu-section-btn">
           <span>Нестандартные решения</span>
@@ -360,20 +380,39 @@
         </a>
       </div>
       <div class="menu-section">
-        <button class="menu-section-btn">
+        <button class="menu-section-btn install-desktop">
           <span>Установка дверей</span>
           <span>＋</span>
         </button>
-        <div class="submenu">
+        <div class="submenu install-desktop">
           <a href="">Установка входных</a>
           <a href="">Установка межкомнатных</a>
           <a href="">Установка перегородок</a>
         </div>
+        <a href="install.html" class="menu-section-btn install-mobile">
+          <span>Установка дверей</span>
+          <span>→</span>
+        </a>
       </div>
       <div class="menu-section">
         <a href="" class="menu-section-btn">
           <span>Доставка и подъём дверей</span>
           <span>→</span>
+        </a>
+      </div>
+      </div>
+      <div class="mobile-drawer-actions">
+        <button class="yellow-btn" type="button" data-lead="measure">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="m4 16 12-12 4 4-12 12H4v-4zM13 7l4 4M10 10l2 2M7 13l2 2" stroke="#132A43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          Бесплатный замер
+        </button>
+        <a class="mobile-drawer-phone" href="tel:+74955143020">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7.4 3H4.7C3.8 3 3 3.8 3 4.7 3 13.7 10.3 21 19.3 21c.9 0 1.7-.8 1.7-1.7v-2.7l-5-1-1.2 2.3a15 15 0 0 1-8.7-8.7L8.4 8l-1-5z" stroke="#132A43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          +7 (495) 514-30-20
         </a>
       </div>
     </div>
@@ -400,6 +439,44 @@
       <button class="dark-btn cookie-accept">Принять</button>
       <button class="white-btn cookie-decline">Только необходимые</button>
       <a href="" class="cookie-link">Подробнее</a>
+    </div>
+  </div>
+
+  <div class="modal search-modal" id="searchModal">
+    <div class="modal-head">
+      <div class="search-main">
+        <p class="heading">Поиск по товарам</p>
+        <form class="search-form">
+          <svg class="icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M15.0007 9.16732C15.0007 12.389 12.389 15.0007 9.16732 15.0007C5.94566 15.0007 3.33398 12.389 3.33398 9.16732C3.33398 5.94566 5.94566 3.33398 9.16732 3.33398C12.389 3.33398 15.0007 5.94566 15.0007 9.16732Z"
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="#132A43" />
+            <path d="M16.666 16.666L13.666 13.666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+              stroke="#132A43" />
+          </svg>
+          <input class="search-input" type="text" placeholder="Например: скрытая дверь" autocomplete="off">
+          <button class="search-submit" type="button">Найти</button>
+        </form>
+      </div>
+      <button class="close" type="button" aria-label="Закрыть поиск">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="search-results">
+        <a class="search-result" href="product.html">
+          <span>
+            <b>Межкомнатная дверь 5К</b><br>
+            <small>Межкомнатная дверь · Контур · за полотно</small>
+          </span>
+          <b>от 12 900 ₽</b>
+        </a>
+        <a class="search-result" href="product.html">
+          <span>
+            <b>Межкомнатная дверь 5К</b><br>
+            <small>Межкомнатная дверь · Контур · за полотно</small>
+          </span>
+          <b>от 12 900 ₽</b>
+        </a>
+      </div>
     </div>
   </div>
 

@@ -14,6 +14,7 @@
 
   <div class="header-info">
     <div class="container">
+      <a class="header-mobile-phone" href="tel:+74955143020">+7 (495) 514-30-20</a>
       <div class="header-info-l">
         <p class="header-place">
           Салоны в Мытищах и Королёве
@@ -70,7 +71,7 @@
           <img src="media/icons/Logo.svg" alt="">
         </a>
         <div class="header-search">
-          <input type="text" placeholder="Поиск по каталогу">
+          <input type="text" placeholder="Поиск по каталогу" readonly>
           <svg class="icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M14.4141 9.19923C14.4141 12.2951 11.9044 14.8047 8.80861 14.8047C5.71279 14.8047 3.20312 12.2951 3.20312 9.19923C3.20312 6.10341 5.71279 3.59375 8.80861 3.59375C11.9044 3.59375 14.4141 6.10341 14.4141 9.19923Z"
@@ -111,6 +112,12 @@
             </svg>
             <span>0</span>
           </div>
+          <button class="mobile-toggle" type="button" aria-label="Открыть меню">
+            <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2.66602 4.66602H13.3327M2.66602 7.99935H13.3327M2.66602 11.3327H13.3327" stroke-width="1.2"
+                stroke-linecap="round" stroke-linejoin="round" stroke="black" />
+            </svg>
+          </button>
         </div>
 
       </div>
@@ -279,19 +286,26 @@
                   <p class="price">12 900 ₽</p>
                 </div>
               </div>
-              <button class="dark-btn" type="button">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M2.5 3.33398H4.16667L5.83333 12.5007H14.1667L15.8333 5.83398H5" stroke-width="1.5"
-                    stroke-linecap="round" stroke-linejoin="round" stroke="white" />
-                  <path
-                    d="M8.33268 15.8333C8.33268 16.2936 7.95959 16.6667 7.49935 16.6667C7.03911 16.6667 6.66602 16.2936 6.66602 15.8333C6.66602 15.3731 7.03911 15 7.49935 15C7.95959 15 8.33268 15.3731 8.33268 15.8333Z"
-                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="white" />
-                  <path
-                    d="M15.0007 15.8333C15.0007 16.2936 14.6276 16.6667 14.1673 16.6667C13.7071 16.6667 13.334 16.2936 13.334 15.8333C13.334 15.3731 13.7071 15 14.1673 15C14.6276 15 15.0007 15.3731 15.0007 15.8333Z"
-                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="white" />
-                </svg>
-                Добавить в корзину
-              </button>
+              <div class="buy-line">
+                <div class="qty">
+                  <button type="button" data-qty="-1" aria-label="Уменьшить количество">−</button>
+                  <span>1</span>
+                  <button type="button" data-qty="1" aria-label="Увеличить количество">+</button>
+                </div>
+                <button class="dark-btn" type="button">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.5 3.33398H4.16667L5.83333 12.5007H14.1667L15.8333 5.83398H5" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round" stroke="white" />
+                    <path
+                      d="M8.33268 15.8333C8.33268 16.2936 7.95959 16.6667 7.49935 16.6667C7.03911 16.6667 6.66602 16.2936 6.66602 15.8333C6.66602 15.3731 7.03911 15 7.49935 15C7.95959 15 8.33268 15.3731 8.33268 15.8333Z"
+                      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="white" />
+                    <path
+                      d="M15.0007 15.8333C15.0007 16.2936 14.6276 16.6667 14.1673 16.6667C13.7071 16.6667 13.334 16.2936 13.334 15.8333C13.334 15.3731 13.7071 15 14.1673 15C14.6276 15 15.0007 15.3731 15.0007 15.8333Z"
+                      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="white" />
+                  </svg>
+                  Добавить в корзину
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -307,28 +321,69 @@
         <div class="wrapper">
           <div class="item">
             <div class="icon">
-              <img src="./media/imgs/systems/1.svg" alt="">
+              <svg viewBox="0 0 220 120" aria-hidden="true">
+                <path d="M34 101h152" class="floor" />
+                <rect x="67" y="17" width="72" height="84" rx="3" class="frame" />
+                <path d="M75 23 131 32v61l-56 8z" class="leaf soft" />
+                <path d="M75 23v78M131 32v61" class="leaf" />
+                <circle cx="120" cy="62" r="3.5" class="accent-fill" />
+                <path d="M139 97c25-10 39-30 39-54" class="motion" />
+                <path d="m169 49 9-6 5 10" class="motion" />
+                <path d="M48 30v64M48 30h15M48 94h15" class="detail" />
+              </svg>
             </div>
             <p class="heading">Распашная</p>
             <p class="text">Доступность зависит от модели и проёма</p>
           </div>
           <div class="item">
             <div class="icon">
-              <img src="./media/imgs/systems/2.svg" alt="">
+              <svg viewBox="0 0 220 120" aria-hidden="true">
+                <path d="M31 101h158" class="floor" />
+                <path d="M44 19h132" class="rail" />
+                <circle cx="86" cy="24" r="3" class="accent-fill" />
+                <circle cx="137" cy="24" r="3" class="accent-fill" />
+                <rect x="59" y="29" width="58" height="70" rx="3" class="panel soft" />
+                <rect x="104" y="29" width="58" height="70" rx="3" class="panel" />
+                <path d="M70 39v50M151 39v50" class="detail" />
+                <circle cx="108" cy="64" r="3.2" class="accent-fill" />
+                <path d="M43 62h34M177 62h-34" class="motion" />
+                <path d="m51 54-8 8 8 8M169 54l8 8-8 8" class="motion" />
+              </svg>
             </div>
             <p class="heading">Раздвижная</p>
             <p class="text">Доступность зависит от модели и проёма</p>
           </div>
           <div class="item">
             <div class="icon">
-              <img src="./media/imgs/systems/3.svg" alt="">
+              <svg viewBox="0 0 220 120" aria-hidden="true">
+                <path d="M30 101h160" class="floor" />
+                <rect x="50" y="18" width="120" height="82" rx="3" class="wall soft" />
+                <path d="M112 18v82" class="pocket" />
+                <rect x="86" y="27" width="54" height="65" rx="3" class="panel" />
+                <path d="M122 34v50" class="detail" />
+                <circle cx="94" cy="60" r="3.2" class="accent-fill" />
+                <path d="M144 60h28" class="motion" />
+                <path d="m165 52 8 8-8 8" class="motion" />
+                <path d="M55 24v70M62 24v70" class="pocket" />
+                <path d="M72 31h8M72 42h8M72 53h8M72 64h8M72 75h8M72 86h8" class="detail" />
+              </svg>
             </div>
             <p class="heading">Пенал</p>
             <p class="text">Доступность зависит от модели и проёма</p>
           </div>
           <div class="item">
             <div class="icon">
-              <img src="./media/imgs/systems/4.svg" alt="">
+              <svg viewBox="0 0 220 120" aria-hidden="true">
+                <path d="M31 101h158" class="floor" />
+                <path d="M49 19h122" class="rail" />
+                <path d="M77 29 110 45v48L77 99z" class="panel soft" />
+                <path d="m110 45 33-16v70l-33-6z" class="panel" />
+                <path d="M110 45v48" class="hinge" />
+                <circle cx="136" cy="64" r="3.2" class="accent-fill" />
+                <path d="M65 64h-23M155 64h23" class="motion" />
+                <path d="m49 56-8 8 8 8M171 56l8 8-8 8" class="motion" />
+                <circle cx="110" cy="45" r="4" class="accent-fill" />
+              </svg>
             </div>
             <p class="heading">Книжка</p>
             <p class="text">Доступность зависит от модели и проёма</p>
@@ -343,70 +398,38 @@
           <h2 class="section-heading">Похожие модели</h2>
         </div>
         <div class="wrapper">
-                    <div class="catalog-item">
-                      <div class="catalog-item-top">
-                        <div class="tabs">
-                          <div class="tab">Контур</div>
-                        </div>
-                        <img src="./media/imgs/catalog/1.png" alt="">
-                      </div>
-                      <div class="catalog-item-btm">
-                        <div class="catalog-item-btm-top">
-                          <p class="type">Межкомнатная дверь</p>
-                          <p class="name">Межкомнатная дверь 5К</p>
-                        </div>
-                        <div class="catalog-item-btm-btm">
-                          <div class="texts">
-                            <div class="price">от 12 900 ₽</div>
-                            <p class="count">за полотно</p>
-                          </div>
-                          <div class="cart-btn">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M2.5 3.33398H4.16667L5.83333 12.5007H14.1667L15.8333 5.83398H5" stroke-width="1.5"
-                                stroke-linecap="round" stroke-linejoin="round" stroke="white" />
-                              <path
-                                d="M8.33268 15.8333C8.33268 16.2936 7.95959 16.6667 7.49935 16.6667C7.03911 16.6667 6.66602 16.2936 6.66602 15.8333C6.66602 15.3731 7.03911 15 7.49935 15C7.95959 15 8.33268 15.3731 8.33268 15.8333Z"
-                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="white" />
-                              <path
-                                d="M15.0007 15.8333C15.0007 16.2936 14.6276 16.6667 14.1673 16.6667C13.7071 16.6667 13.334 16.2936 13.334 15.8333C13.334 15.3731 13.7071 15 14.1673 15C14.6276 15 15.0007 15.3731 15.0007 15.8333Z"
-                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="white" />
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="catalog-item">
-                      <div class="catalog-item-top">
-                        <div class="tabs">
-                          <div class="tab">Контур</div>
-                        </div>
-                        <img src="./media/imgs/catalog/2.png" alt="">
-                      </div>
-                      <div class="catalog-item-btm">
-                        <div class="catalog-item-btm-top">
-                          <p class="type">Межкомнатная дверь</p>
-                          <p class="name">Межкомнатная дверь 5К</p>
-                        </div>
-                        <div class="catalog-item-btm-btm">
-                          <div class="texts">
-                            <div class="price">от 12 900 ₽</div>
-                            <p class="count">за полотно</p>
-                          </div>
-                          <div class="cart-btn">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M2.5 3.33398H4.16667L5.83333 12.5007H14.1667L15.8333 5.83398H5" stroke-width="1.5"
-                                stroke-linecap="round" stroke-linejoin="round" stroke="white" />
-                              <path
-                                d="M8.33268 15.8333C8.33268 16.2936 7.95959 16.6667 7.49935 16.6667C7.03911 16.6667 6.66602 16.2936 6.66602 15.8333C6.66602 15.3731 7.03911 15 7.49935 15C7.95959 15 8.33268 15.3731 8.33268 15.8333Z"
-                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="white" />
-                              <path
-                                d="M15.0007 15.8333C15.0007 16.2936 14.6276 16.6667 14.1673 16.6667C13.7071 16.6667 13.334 16.2936 13.334 15.8333C13.334 15.3731 13.7071 15 14.1673 15C14.6276 15 15.0007 15.3731 15.0007 15.8333Z"
-                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="white" />
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+          <div class="catalog-item">
+            <div class="catalog-item-top">
+              <div class="tabs">
+                <div class="tab">Контур</div>
+              </div>
+              <img src="./media/imgs/catalog/2.png" alt="">
+            </div>
+            <div class="catalog-item-btm">
+              <div class="catalog-item-btm-top">
+                <p class="type">Межкомнатная дверь</p>
+                <p class="name">Межкомнатная дверь 54К</p>
+              </div>
+              <div class="catalog-item-btm-btm">
+                <div class="texts">
+                  <div class="price">от 14 900 ₽</div>
+                  <p class="count">за полотно</p>
+                </div>
+                <div class="cart-btn">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.5 3.33398H4.16667L5.83333 12.5007H14.1667L15.8333 5.83398H5" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round" stroke="white" />
+                    <path
+                      d="M8.33268 15.8333C8.33268 16.2936 7.95959 16.6667 7.49935 16.6667C7.03911 16.6667 6.66602 16.2936 6.66602 15.8333C6.66602 15.3731 7.03911 15 7.49935 15C7.95959 15 8.33268 15.3731 8.33268 15.8333Z"
+                      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="white" />
+                    <path
+                      d="M15.0007 15.8333C15.0007 16.2936 14.6276 16.6667 14.1673 16.6667C13.7071 16.6667 13.334 16.2936 13.334 15.8333C13.334 15.3731 13.7071 15 14.1673 15C14.6276 15 15.0007 15.3731 15.0007 15.8333Z"
+                      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="white" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -498,10 +521,21 @@
   <div class="overlay"></div>
   <div class="catalog-drawer" id="catalogDrawer">
     <div class="catalog-drawer-head">
-      <p class="heading">Все направления каталога</p>
+      <p class="heading drawer-title-desktop">Все направления каталога</p>
+      <p class="heading drawer-title-mobile">Меню</p>
       <button class="close">×</button>
     </div>
     <div class="catalog-drawer-body">
+      <nav class="mobile-drawer-main">
+        <a href="index.html">Главная</a>
+        <a href="promo.html">Акции</a>
+        <a href="works.html">Наши работы</a>
+        <a href="about.html">О компании</a>
+        <a href="contacts.html">Контакты</a>
+        <a class="mobile-yandex-reviews" href="https://yandex.ru/maps/org/miksdors/1396940321/reviews/?ll=37.807053%2C55.916889&amp;tab=reviews&amp;z=14.05" target="_blank" rel="noopener noreferrer"><span class="yandex-review-mark">Я</span>Отзывы на Яндекс Картах</a>
+      </nav>
+      <p class="mobile-drawer-label">Каталог и услуги</p>
+      <div class="mobile-drawer-catalog-primary">
       <div class="menu-section">
         <button class="menu-section-btn">
           <span>Входные двери</span>
@@ -573,6 +607,8 @@
           <span>→</span>
         </a>
       </div>
+      </div>
+      <div class="mobile-drawer-secondary">
       <div class="menu-section">
         <a href="" class="menu-section-btn">
           <span>Нестандартные решения</span>
@@ -580,20 +616,39 @@
         </a>
       </div>
       <div class="menu-section">
-        <button class="menu-section-btn">
+        <button class="menu-section-btn install-desktop">
           <span>Установка дверей</span>
           <span>＋</span>
         </button>
-        <div class="submenu">
+        <div class="submenu install-desktop">
           <a href="">Установка входных</a>
           <a href="">Установка межкомнатных</a>
           <a href="">Установка перегородок</a>
         </div>
+        <a href="install.html" class="menu-section-btn install-mobile">
+          <span>Установка дверей</span>
+          <span>→</span>
+        </a>
       </div>
       <div class="menu-section">
         <a href="" class="menu-section-btn">
           <span>Доставка и подъём дверей</span>
           <span>→</span>
+        </a>
+      </div>
+      </div>
+      <div class="mobile-drawer-actions">
+        <button class="yellow-btn" type="button" data-lead="measure">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="m4 16 12-12 4 4-12 12H4v-4zM13 7l4 4M10 10l2 2M7 13l2 2" stroke="#132A43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          Бесплатный замер
+        </button>
+        <a class="mobile-drawer-phone" href="tel:+74955143020">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7.4 3H4.7C3.8 3 3 3.8 3 4.7 3 13.7 10.3 21 19.3 21c.9 0 1.7-.8 1.7-1.7v-2.7l-5-1-1.2 2.3a15 15 0 0 1-8.7-8.7L8.4 8l-1-5z" stroke="#132A43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          +7 (495) 514-30-20
         </a>
       </div>
     </div>
@@ -620,6 +675,44 @@
       <button class="dark-btn cookie-accept">Принять</button>
       <button class="white-btn cookie-decline">Только необходимые</button>
       <a href="" class="cookie-link">Подробнее</a>
+    </div>
+  </div>
+
+  <div class="modal search-modal" id="searchModal">
+    <div class="modal-head">
+      <div class="search-main">
+        <p class="heading">Поиск по товарам</p>
+        <form class="search-form">
+          <svg class="icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M15.0007 9.16732C15.0007 12.389 12.389 15.0007 9.16732 15.0007C5.94566 15.0007 3.33398 12.389 3.33398 9.16732C3.33398 5.94566 5.94566 3.33398 9.16732 3.33398C12.389 3.33398 15.0007 5.94566 15.0007 9.16732Z"
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="#132A43" />
+            <path d="M16.666 16.666L13.666 13.666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+              stroke="#132A43" />
+          </svg>
+          <input class="search-input" type="text" placeholder="Например: скрытая дверь" autocomplete="off">
+          <button class="search-submit" type="button">Найти</button>
+        </form>
+      </div>
+      <button class="close" type="button" aria-label="Закрыть поиск">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="search-results">
+        <a class="search-result" href="product.html">
+          <span>
+            <b>Межкомнатная дверь 5К</b><br>
+            <small>Межкомнатная дверь · Контур · за полотно</small>
+          </span>
+          <b>от 12 900 ₽</b>
+        </a>
+        <a class="search-result" href="product.html">
+          <span>
+            <b>Межкомнатная дверь 5К</b><br>
+            <small>Межкомнатная дверь · Контур · за полотно</small>
+          </span>
+          <b>от 12 900 ₽</b>
+        </a>
+      </div>
     </div>
   </div>
 
