@@ -390,14 +390,14 @@ if (sortSelect) {
 }
 
 
-// ===== Карточка товара =====
+// ===== Зум =====
 
-const productSliderEl = document.querySelector('.product-slider');
+let openZoom = function () {};
 
-if (productSliderEl) {
-  const productThumbs = document.querySelectorAll('.product-thumbs .thumb');
+if (zoomModal) {
   const zoomImage = zoomModal.querySelector('.zoom-stage img');
   const zoomStage = zoomModal.querySelector('.zoom-stage');
+  const zoomHeading = zoomModal.querySelector('.zoom-head .heading');
   const zoomClose = zoomModal.querySelector('.close');
   const zoomTools = zoomModal.querySelectorAll('.zoom-tool[data-zoom]');
   let productZoomScale = 1;
@@ -444,37 +444,15 @@ if (productSliderEl) {
     applyProductZoom();
   }
 
-  const productSlider = new Swiper(productSliderEl, {
-    speed: 400,
-    effect: 'fade',
-    fadeEffect: {
-      crossFade: true
-    },
-    on: {
-      slideChange(swiper) {
-        productThumbs.forEach((thumb, i) => {
-          thumb.classList.toggle('active', i === swiper.realIndex);
-        });
-      },
-    },
-  });
-
-  productThumbs.forEach((thumb, i) => {
-    thumb.addEventListener('click', () => {
-      productSlider.slideTo(i);
-    });
-  });
-
-  function openProductZoom() {
-    const activeSlide = productSlider.slides[productSlider.activeIndex];
-    zoomImage.src = activeSlide.querySelector('img').src;
+  openZoom = function (src, title) {
+    if (src) zoomImage.src = src;
+    if (title && zoomHeading) zoomHeading.textContent = title;
     resetProductZoom();
     overlay.classList.add('active');
     zoomModal.classList.add('active');
     document.documentElement.classList.add('lock');
-  }
+  };
 
-  productSliderEl.addEventListener('click', openProductZoom);
   zoomClose.addEventListener('click', closeOverlays);
 
   zoomTools.forEach((btn) => {
@@ -514,7 +492,7 @@ if (productSliderEl) {
     e.preventDefault();
   });
 
-  function endZoomPan(e) {
+  function endZoomPan() {
     if (!productZoomDragging) return;
     if (productZoomPointer !== null) {
       try {
@@ -529,6 +507,50 @@ if (productSliderEl) {
   zoomStage.addEventListener('pointerup', endZoomPan);
   zoomStage.addEventListener('pointercancel', endZoomPan);
   zoomStage.addEventListener('pointerleave', endZoomPan);
+
+  document.querySelectorAll('.gallery .item').forEach((item) => {
+    item.addEventListener('click', () => {
+      const image = item.querySelector('img');
+      const name = item.querySelector('.name');
+      if (!image) return;
+      openZoom(image.src, name ? name.textContent.trim() : '');
+    });
+  });
+}
+
+// ===== Карточка товара =====
+
+const productSliderEl = document.querySelector('.product-slider');
+
+if (productSliderEl) {
+  const productThumbs = document.querySelectorAll('.product-thumbs .thumb');
+
+  const productSlider = new Swiper(productSliderEl, {
+    speed: 400,
+    effect: 'fade',
+    fadeEffect: {
+      crossFade: true
+    },
+    on: {
+      slideChange(swiper) {
+        productThumbs.forEach((thumb, i) => {
+          thumb.classList.toggle('active', i === swiper.realIndex);
+        });
+      },
+    },
+  });
+
+  productThumbs.forEach((thumb, i) => {
+    thumb.addEventListener('click', () => {
+      productSlider.slideTo(i);
+    });
+  });
+
+  productSliderEl.addEventListener('click', () => {
+    const activeSlide = productSlider.slides[productSlider.activeIndex];
+    const image = activeSlide.querySelector('img');
+    if (image) openZoom(image.src);
+  });
 
   document.querySelectorAll('.product-info .options').forEach((group) => {
     const options = group.querySelectorAll('.option');

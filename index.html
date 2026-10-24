@@ -68,7 +68,7 @@
     <div class="header-top">
       <div class="container">
         <a href="" class="logo">
-          <img src="media/icons/Logo.svg" alt="">
+          <img src="./media/icons/Logo.svg" alt="">
         </a>
         <div class="header-search">
           <input type="text" placeholder="Поиск по каталогу" readonly>
@@ -311,6 +311,7 @@
             </svg>
           </a>
         </div>
+        <p class="mobile-swipe-hint">Листайте товары вправо <span>→</span></p>
         <div class="swiper popular-slider">
           <div class="swiper-wrapper wrapper">
           <div class="swiper-slide">
@@ -358,11 +359,11 @@
             <div class="catalog-item-btm">
               <div class="catalog-item-btm-top">
                 <p class="type">Межкомнатная дверь</p>
-                <p class="name">Межкомнатная дверь 5К</p>
+                <p class="name">Межкомнатная дверь 54К</p>
               </div>
               <div class="catalog-item-btm-btm">
                 <div class="texts">
-                  <div class="price">от 12 900 ₽</div>
+                  <div class="price">от 14 900 ₽</div>
                   <p class="count">за полотно</p>
                 </div>
                 <div class="cart-btn">
@@ -384,19 +385,16 @@
           <div class="swiper-slide">
             <div class="catalog-item">
             <div class="catalog-item-top">
-              <div class="tabs">
-                <div class="tab">Контур</div>
-              </div>
               <img src="./media/imgs/catalog/1.png" alt="">
             </div>
             <div class="catalog-item-btm">
               <div class="catalog-item-btm-top">
                 <p class="type">Межкомнатная дверь</p>
-                <p class="name">Межкомнатная дверь 5К</p>
+                <p class="name">DiDoors Neo</p>
               </div>
               <div class="catalog-item-btm-btm">
                 <div class="texts">
-                  <div class="price">от 12 900 ₽</div>
+                  <div class="price">от 18 700 ₽</div>
                   <p class="count">за полотно</p>
                 </div>
                 <div class="cart-btn">
@@ -419,18 +417,18 @@
             <div class="catalog-item">
             <div class="catalog-item-top">
               <div class="tabs">
-                <div class="tab">Контур</div>
+                <div class="tab">Выбор</div>
               </div>
               <img src="./media/imgs/catalog/2.png" alt="">
             </div>
             <div class="catalog-item-btm">
               <div class="catalog-item-btm-top">
-                <p class="type">Межкомнатная дверь</p>
-                <p class="name">Межкомнатная дверь 5К</p>
+                <p class="type">Скрытая дверь</p>
+                <p class="name">Сфера Invisible</p>
               </div>
               <div class="catalog-item-btm-btm">
                 <div class="texts">
-                  <div class="price">от 12 900 ₽</div>
+                  <div class="price">от 32 900 ₽</div>
                   <p class="count">за полотно</p>
                 </div>
                 <div class="cart-btn">
@@ -469,7 +467,7 @@
     <section class="gallery">
       <div class="container">
         <div class="heading-block">
-          <h2 class="section-heading">Популярные модели</h2>
+          <h2 class="section-heading">Двери в реальных интерьерах</h2>
           <a href="" class="link">
             Открыть фотогалерею
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -530,6 +528,7 @@
               </a>
             </div>
             <img src="./media/imgs/contacts/1.png" alt="">
+            <div class="map-mock" aria-hidden="true"><span class="map-pin"></span></div>
           </div>
           <div class="item">
             <div class="texts">
@@ -546,6 +545,7 @@
               </a>
             </div>
             <img src="./media/imgs/contacts/1.png" alt="">
+            <div class="map-mock" aria-hidden="true"><span class="map-pin"></span></div>
           </div>
         </div>
       </div>
@@ -614,6 +614,8 @@
           <a href="" class="footer-menu-item">Акции</a>
           <a href="" class="footer-menu-item">Фотогалерея</a>
         </nav>
+        <a href="" class="start start-mobile">
+          <img src="./media/icons/footer/start.svg" alt=""></a>
       </div>
       <div class="footer-item">
         <p class="heading">Компания</p>
@@ -623,7 +625,7 @@
           <a href="" class="footer-menu-item">Политика конфиденциальности</a>
           <a href="" class="footer-menu-item">Правила продажи</a>
         </nav>
-        <a href="" class="start">
+        <a href="" class="start start-desktop">
           <img src="./media/icons/footer/start.svg" alt=""></a>
       </div>
     </div>
@@ -866,6 +868,22 @@
         <button type="submit" class="yellow-btn">Отправить заявку</button>
         <p class="call">Или позвоните: <a href="tel:+74955143020">+7 (495) 514-30-20</a></p>
       </form>
+    </div>
+  </div>
+
+  <div class="zoom-modal">
+    <div class="zoom-head">
+      <p class="heading">Фото интерьера</p>
+      <div class="zoom-actions">
+        <button class="zoom-tool" type="button" data-zoom="-0.25">-</button>
+        <button class="zoom-tool" type="button" data-zoom="reset">↺</button>
+        <button class="zoom-tool" type="button" data-zoom="0.25">+</button>
+        <button class="zoom-tool close" type="button">×</button>
+      </div>
+    </div>
+    <div class="zoom-stage">
+      <img src="" alt="">
+      <p class="zoom-note">Колёсико мыши или + / - для масштаба · увеличенное изображение можно перетаскивать</p>
     </div>
   </div>
 
