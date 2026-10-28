@@ -573,17 +573,46 @@ if (productSliderEl) {
   let productQty = 1;
 
   function formatProductPrice(value) {
-    return `${value.toLocaleString('ru-RU')} ₽`;
+    const prefix = document.querySelector('.purchase')?.dataset.prefix || '';
+    return `${prefix}${value.toLocaleString('ru-RU')} ₽`;
   }
 
   function updatePurchasePrice() {
     const active = document.querySelector('.purchase .package.active strong');
-    if (!active || !unitPrice || !totalPrice) return;
-    const unit = Number(active.textContent.replace(/\D/g, '')) || 0;
-    unitPrice.textContent = formatProductPrice(unit);
-    totalPrice.textContent = formatProductPrice(unit * productQty);
+    if (active && unitPrice && totalPrice) {
+      const unit = Number(active.textContent.replace(/\D/g, '')) || 0;
+      unitPrice.textContent = formatProductPrice(unit);
+      totalPrice.textContent = formatProductPrice(unit * productQty);
+      if (qtyNum) qtyNum.textContent = String(productQty);
+      return;
+    }
+
+    const size = document.querySelector('.entrance-size-options .option.active');
+    const base = Number(document.querySelector('.purchase')?.dataset.price) || 0;
+    if (!size || !unitPrice || !totalPrice || !base) return;
+
+    if (size.dataset.request === '1') {
+      unitPrice.textContent = 'По запросу';
+      totalPrice.textContent = 'По запросу';
+      if (composition) composition.textContent = 'Для размера более 2400 × 1100 нужен индивидуальный расчёт';
+    } else {
+      const multiplier = Number(size.dataset.multiplier) || 1;
+      const unit = Math.round(base * multiplier);
+      unitPrice.textContent = formatProductPrice(unit);
+      totalPrice.textContent = formatProductPrice(unit * productQty);
+      if (composition) {
+        composition.textContent = multiplier > 1
+          ? 'К стоимости применено увеличение +20%'
+          : 'Цена указана за выбранную комплектацию';
+      }
+    }
+
     if (qtyNum) qtyNum.textContent = String(productQty);
   }
+
+  document.querySelectorAll('.entrance-size-options .option').forEach((option) => {
+    option.addEventListener('click', updatePurchasePrice);
+  });
 
   packages.forEach((card) => {
     card.addEventListener('click', () => {

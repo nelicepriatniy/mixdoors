@@ -2691,6 +2691,228 @@ footer .footer-btm .container {
   stroke: #132a43;
 }
 
+.product .summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10rem;
+  margin: 18rem 0 0;
+}
+.product .summary .item {
+  min-height: 72rem;
+  padding: 14rem 15rem;
+  border: 1rem solid #dde2e6;
+  border-radius: 15rem;
+  background: #fff;
+}
+.product .summary span {
+  display: block;
+  font-size: 10rem;
+  line-height: 125%;
+  color: #6f7883;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 5rem;
+}
+.product .summary b {
+  display: block;
+  font-size: 13rem;
+  line-height: 135%;
+  color: #132a43;
+}
+
+.product .purchase.simple .purchase-sum {
+  margin-top: 7rem;
+  padding-top: 0;
+  border-top: none;
+}
+.product .purchase.simple .unit-price {
+  font-size: 22rem;
+}
+
+.entrance-tech {
+  padding: 30rem 0 42rem;
+}
+.entrance-tech .card {
+  background: #fff;
+  border: 1rem solid #dde2e6;
+  border-radius: 24rem;
+  overflow: hidden;
+  box-shadow: 0 12rem 38rem 0 rgba(14, 31, 51, 0.055);
+}
+.entrance-tech .head {
+  padding: 28rem 30rem 23rem;
+  border-bottom: 1rem solid #dde2e6;
+  background: linear-gradient(135deg, #fff 0%, #F7F6F1 100%);
+}
+.entrance-tech .heading {
+  font-weight: 700;
+  font-size: 30rem;
+  line-height: 110%;
+  letter-spacing: -0.025em;
+  color: #132a43;
+  margin-bottom: 6rem;
+}
+.entrance-tech .text {
+  max-width: 610rem;
+  color: #6f7883;
+  font-size: 13rem;
+  line-height: 160%;
+}
+.entrance-tech table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.entrance-tech table col:first-child {
+  width: 35%;
+}
+.entrance-tech th,
+.entrance-tech td {
+  padding: 13rem 30rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1rem solid #dde2e6;
+  font-size: 13rem;
+  line-height: 148%;
+}
+.entrance-tech td:first-child {
+  color: #6f7883;
+  font-weight: 650;
+}
+.entrance-tech td:last-child {
+  color: #132a43;
+  font-weight: 760;
+}
+.entrance-tech tr:last-child td {
+  border-bottom: none;
+}
+.entrance-tech .group th {
+  padding: 12rem 30rem;
+  background: #F7F6F1;
+  color: #132a43;
+  font-size: 11rem;
+  font-weight: 900;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+  border-bottom: 1rem solid #dde2e6;
+}
+.entrance-tech .group:not(:first-child) th {
+  border-top: 8rem solid #fff;
+}
+.entrance-tech .note {
+  display: flex;
+  gap: 12rem;
+  align-items: flex-start;
+  padding: 18rem 30rem 21rem;
+  border-top: 1rem solid #dde2e6;
+  background: #F7F6F1;
+}
+.entrance-tech .note .icon {
+  width: 36rem;
+  height: 36rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  background: #eee5b8;
+}
+.entrance-tech .note .icon svg {
+  width: 17rem;
+  height: 17rem;
+}
+.entrance-tech .note b {
+  display: block;
+  font-size: 12rem;
+  line-height: 145%;
+  color: #132a43;
+  margin-bottom: 3rem;
+}
+.entrance-tech .note span {
+  display: block;
+  color: #6f7883;
+  font-size: 12rem;
+  line-height: 150%;
+}
+
+.entrance-config {
+  padding: 18rem 0 72rem;
+}
+.entrance-config .heading-block {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300rem, 520rem);
+  align-items: start;
+  gap: 34rem;
+  margin-bottom: 30rem;
+}
+.entrance-config .heading-block .section-heading-text {
+  margin-top: 4rem;
+}
+.entrance-config .wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14rem;
+}
+.entrance-config .item {
+  background: #fff;
+  border: 1rem solid #dde2e6;
+  border-radius: 20rem;
+  padding: 20rem;
+  min-height: 230rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s ease;
+}
+.entrance-config .item:hover {
+  transform: translateY(-2rem);
+  box-shadow: 0 14rem 34rem 0 rgba(14, 31, 51, 0.07);
+  border-color: rgba(14, 31, 51, 0.16);
+}
+.entrance-config .visual {
+  height: 128rem;
+  border-radius: 14rem;
+  background: #F7F6F1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 17rem;
+  overflow: hidden;
+}
+.entrance-config .visual svg {
+  width: 78%;
+  height: 104rem;
+  fill: none;
+  stroke: #132a43;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.entrance-config .visual .fixed {
+  fill: #f8efc4;
+  stroke: #f4c928;
+}
+.entrance-config .visual .doorfill {
+  fill: #f4f7f9;
+}
+.entrance-config .visual circle {
+  fill: #f4c928;
+  stroke: none;
+}
+.entrance-config .heading {
+  font-weight: 700;
+  font-size: 17rem;
+  line-height: 125%;
+  letter-spacing: -0.012em;
+  color: #132a43;
+  margin-bottom: 6rem;
+}
+.entrance-config .text {
+  font-size: 12rem;
+  line-height: 155%;
+  color: #6f7883;
+}
+
 .product-systems {
   padding: 80rem 0;
 }
@@ -5255,6 +5477,71 @@ footer .footer-btm .container {
   }
   .product .purchase .qty {
     width: max-content;
+  }
+  .product .summary {
+    grid-template-columns: 1fr 1fr;
+    gap: 8rem;
+  }
+  .product .summary .item {
+    min-height: 66rem;
+    padding: 12rem;
+  }
+  .entrance-tech .card {
+    border-radius: 18rem;
+  }
+  .entrance-tech .head {
+    padding: 21rem 18rem 18rem;
+  }
+  .entrance-tech .heading {
+    font-size: 24rem;
+  }
+  .entrance-tech table,
+  .entrance-tech tbody,
+  .entrance-tech tr,
+  .entrance-tech td,
+  .entrance-tech th {
+    display: block;
+    width: 100%;
+  }
+  .entrance-tech colgroup {
+    display: none;
+  }
+  .entrance-tech .group th {
+    padding: 11rem 18rem;
+  }
+  .entrance-tech td {
+    padding: 6rem 18rem;
+    border-bottom: none;
+  }
+  .entrance-tech td:first-child {
+    padding-top: 12rem;
+    font-size: 11rem;
+  }
+  .entrance-tech td:last-child {
+    padding-top: 1rem;
+    padding-bottom: 12rem;
+    border-bottom: 1rem solid #dde2e6;
+  }
+  .entrance-tech .note {
+    padding: 16rem 18rem;
+  }
+  .entrance-config .heading-block {
+    grid-template-columns: 1fr;
+    align-items: flex-start;
+    gap: 12rem;
+    margin-bottom: 30rem;
+  }
+  .entrance-config .section-heading {
+    font-size: 30rem;
+  }
+  .entrance-config .section-heading-text {
+    margin-top: 0;
+  }
+  .entrance-config .wrapper {
+    grid-template-columns: 1fr;
+  }
+  .entrance-config .item {
+    min-height: 0;
   }
   .product-systems,
   .product-similar {
